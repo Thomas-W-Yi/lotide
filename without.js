@@ -21,6 +21,8 @@ const without = (a1, a2) => {
   });
 };
 const words = ['hello', 'world', 'lighthouse'];
+console.log(without([1, 'cat', 3, 'dog', 1, 1], [1, 'dog', 2]));
+
 without(words, ['lighthouse']); // no need to capture return value for this test case
 console.log(without(words, ['lighthouse']));
 // Make sure the original array was not altered by the without function
