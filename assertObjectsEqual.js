@@ -1,13 +1,3 @@
-const assertEqual = function (actual, expected) {
-  let fail = '🛑',
-    pass = '✅';
-  console.log(
-    actual === expected
-      ? `${pass}${pass}${pass}Assertion Passed: ${actual} === ${expected}`
-      : `${fail}${fail}${fail}Assertion Failed: ${actual} !== ${expected}`
-  );
-};
-
 const eqArrays = (array1, array2) => {
   for (let i = 0; i < array1.length; i++) {
     if (array1[i] !== array2[i]) {
@@ -56,12 +46,13 @@ const eqObjects = function (object1, object2) {
   }
 };
 
-const ab = { a: '1', b: '2' };
-const ba = { b: '2', a: '1' };
-eqObjects(ab, ba); // => true
-
-const abc = { a: '1', b: '2', c: '3' };
-console.log(eqObjects(ab, abc)); // => false
-
-// assertEqual(eqObjects(ab, ba), true);
-assertEqual(eqObjects(ab, abc), false);
+const assertObjectsEqual = function (actual, expected) {
+  // Implement me!
+  let fail = '🛑',
+    pass = '✅';
+  console.log(actual, expected, eqObjects(actual, expected));
+  return eqObjects(actual, expected)
+    ? `${pass}${pass}${pass}Assertion Passed: ${actual} === ${expected}`
+    : `${fail}${fail}${fail}Assertion Failed: ${actual} !== ${expected}`;
+};
+console.log(assertObjectsEqual({ a: '1', b: '2' }, { b: '2', a: '1' }));
