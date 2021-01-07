@@ -12,12 +12,15 @@ const assertEqual = function (actual, expected) {
 // itemsToCount: an object specifying what to count
 const countOnly = function (allItems, itemsToCount) {
   let keys = Object.keys(itemsToCount);
+
   let newKeys = keys.filter((key) => {
     return itemsToCount[key];
   });
+
   let countItems = allItems.filter((x) => {
     return newKeys.includes(x);
   });
+  console.log(countItems);
   let result = {};
   countItems.map((y) => {
     result[y] ? result[y]++ : (result[y] = 1);
@@ -44,7 +47,7 @@ const result1 = countOnly(firstNames, {
   Agouhanna: false,
 });
 
-assertEqual(result1['Jason'], 1);
-assertEqual(result1['Karima'], 3);
-assertEqual(result1['Fang'], 2);
-assertEqual(result1['Agouhanna'], undefined);
+// assertEqual(result1['Jason'], 1);
+// assertEqual(result1['Karima'], 3);
+// assertEqual(result1['Fang'], 2);
+// assertEqual(result1['Agouhanna'], undefined);
