@@ -1,3 +1,4 @@
+const log = console.log;
 const assertEqual = function (actual, expected) {
   let fail = '🛑',
     pass = '✅';
@@ -25,15 +26,19 @@ const eqObjects = function (object1, object2) {
   if (keys1.length !== keys2.length) {
     return false;
   } else {
-    for (let i = 0; i < keys1.length; i++) {
+    for (let key of keys1) {
       if (
-        Array.isArray(object1[keys1[i]]) &&
-        Array.isArray(object2[keys1[i]])
+        Array.isArray(object1[key]) &&
+        Array.isArray(object2[key])
       ) {
-        if (eqArrays(object1[keys1[i]], object2[[keys1[i]]]) === false) {
+        if (eqArrays(object1[key], object2[[key]]) === false) {
           return false;
         }
-      } else if (object1[keys1[i]] !== object2[[keys1[i]]]) {
+      } else if (typeof(object1[key]) === 'object' && typeof(object1[key]) === 'object') {
+        if (eqObjects(object1[key], object2[key]) === false) {
+          return false;
+        }
+      } else if (object1[key] !== object2[[key]]) {
         return false;
       }
     }
@@ -41,20 +46,23 @@ const eqObjects = function (object1, object2) {
   }
 };
 
-const ab = { a: '1', b: '2' };
-const ba = { b: '2', a: '1' };
-console.log(eqObjects(ab, ba)); // => true
+// const ab = { a: '1', b: '2' };
+// const ba = { b: '2', a: '1' };
+// console.log(eqObjects(ab, ba)); // => true
 
-const abc = { a: '1', b: '2', c: '3' };
-eqObjects(ab, abc); // => false
-console.log(eqObjects(ab, abc));
+// const abc = { a: '1', b: '2', c: '3' };
+// eqObjects(ab, abc); // => false
+// console.log(eqObjects(ab, abc));
 
-const cd = { c: '1', d: ['2', 3] };
-const dc = { d: ['2', 3], c: '1' };
-eqObjects(cd, dc); // => true
-console.log(eqObjects(cd, dc));
-const cd2 = { c: '1', d: ['2', 3, 4] };
-// => false
-console.log(eqObjects(cd, cd2));
-assertEqual(eqObjects(ab, abc), true);
-assertEqual(eqObjects(ab, abc), false);
+// const cd = { c: '1', d: ['2', 3] };
+// const dc = { d: ['2', 3], c: '1' };
+// eqObjects(cd, dc); // => true
+// console.log(eqObjects(cd, dc));
+// const cd2 = { c: '1', d: ['2', 3, 4] };
+// // => false
+// console.log(eqObjects(cd, cd2));
+// assertEqual(eqObjects(ab, abc), true);
+// assertEqual(eqObjects(ab, abc), false);
+log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
+log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
