@@ -15,3 +15,5 @@ const reverse = (args) => {
 let a, b, rest;
 [a, b, ...rest] = process.argv;
 reverse(rest);
+
+module.exports = reverse;

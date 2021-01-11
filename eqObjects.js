@@ -1,25 +1,17 @@
-const log = console.log;
-const assertEqual = function (actual, expected) {
-  let fail = '🛑',
-    pass = '✅';
-  console.log(
-    actual === expected
-      ? `${pass}${pass}${pass}Assertion Passed: ${actual} === ${expected}`
-      : `${fail}${fail}${fail}Assertion Failed: ${actual} !== ${expected}`
-  );
-};
+// const log = console.log;
+// const assertEqual = function (actual, expected) {
+//   let fail = '🛑',
+//     pass = '✅';
+//   console.log(
+//     actual === expected
+//       ? `${pass}${pass}${pass}Assertion Passed: ${actual} === ${expected}`
+//       : `${fail}${fail}${fail}Assertion Failed: ${actual} !== ${expected}`
+//   );
+// };
 
-const eqArrays = (array1, array2) => {
-  let len = array1.length > array2.length ? array1.length : array2.length;
-  for (let i = 0; i < len; i++) {
-    if (array1[i] !== array2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require('./eqArrays');
 
-const eqObjects = function (object1, object2) {
+const eqObjects = function(object1, object2) {
   let keys1 = Object.keys(object1);
   let keys2 = Object.keys(object2);
 
@@ -63,6 +55,7 @@ const eqObjects = function (object1, object2) {
 // console.log(eqObjects(cd, cd2));
 // assertEqual(eqObjects(ab, abc), true);
 // assertEqual(eqObjects(ab, abc), false);
-log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
-log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
-log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
+// log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => true
+// log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })); // => false
+// log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })); // => false
+module.exports = eqObjects;

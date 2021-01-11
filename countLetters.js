@@ -16,4 +16,5 @@ const countLetters = (string) => {
   return result;
 };
 
-assertEqual(countLetters('LHL')['L'], 2);
+// assertEqual(countLetters('LHL')['L'], 2);
+module.exports = countLetters;
