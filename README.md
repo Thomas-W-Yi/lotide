@@ -34,7 +34,7 @@ The following functions are currently implemented:
 * `reverse(...)`: reverse a string
 * `map([...], callback)`: returns a new array with each element modified through the callback function
 * `without([arr1], [arr2])`: returns element that is not presendted in both arrays
-* `flatten([..., [...]])`: returns a new arary with has no nested arrays (only work with 1 level nestded array)
+* `flatten([..., [...]])`: returns a new arary with has no nested arrays
 * `findKey({obj}, callback)`: returns the key of the object based on the callback function
 * `findKeyByValue({obj}, value)`: returns the key that matched the input value
 * `countLetters(string, letter)`: returns the number of letter inside of a string
