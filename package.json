@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@thomasyi/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lodash clone",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/thomaswyee/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Thomas Yi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thomaswyee/lotide/issues"
