@@ -1,5 +1,5 @@
 // FUNCTION IMPLEMENTATION
-const assertEqual = function (actual, expected) {
+const assertEqual = function(actual, expected) {
   let fail = '🛑',
     pass = '✅';
   console.log(
@@ -8,6 +8,6 @@ const assertEqual = function (actual, expected) {
       : `${fail}${fail}${fail}Assertion Failed: ${actual} !== ${expected}`
   );
 };
-// TEST CODE
-assertEqual('Lighthouse Labs', 'Lighthouse Labs');
-assertEqual(1, 10);
+
+
+module.exports = assertEqual;
