@@ -15,19 +15,19 @@ const takeUntil = require('./takeUntil');
 const letterPositions = require('./letterPositions');
 
 module.exports = {
-  head: head,
-  tail: tail,
-  middle: middle,
-  eqArrays: eqArrays,
-  eqObjects: eqObjects,
-  reverse: reverse,
-  map: map,
-  without: without,
-  flatten: flatten,
-  findKey: findKey,
-  findKeyByValue: findKeyByValue,
-  countLetters: countLetters,
-  countOnly: countOnly,
-  takeUntil: takeUntil,
-  letterPositions: letterPositions
+  head,
+  tail,
+  middle,
+  eqArrays,
+  eqObjects,
+  reverse,
+  map,
+  without,
+  flatten,
+  findKey,
+  findKeyByValue,
+  countLetters,
+  countOnly,
+  takeUntil,
+  letterPositions
 };
